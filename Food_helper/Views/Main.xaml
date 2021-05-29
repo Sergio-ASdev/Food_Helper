@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_helper.Views.Main"
+             xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
+             Title="Food Helper">
+    <ContentPage.Resources>        <StyleSheet Source="../Styles/estilos.css"/>        <!--        <Style TargetType="Frame">            <Setter Property="CornerRadius" Value="25"/>            <Setter Property="BorderColor" Value="Blue"/>        </Style>        <Style TargetType="Button">            <Setter Property="Text" Value="Read more..."/>            <Setter Property="CornerRadius" Value="20"/>        </Style>        -->    </ContentPage.Resources>
+             Title="Food Helper"
+             x:Name="PageCarrousel">
+    <ContentPage.BindingContext>
+        <viewmodels:ListaCategoriasModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <!--<CarouselView HorizontalOptions="FillAndExpand" 
+                              HeightRequest="400"
+                              ItemsSource="{Binding Categorias}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10">
+                                <Frame CornerRadius="20"
+                                   Padding="0">
+                                    <StackLayout>
+                                        <Image Source="{Binding Imagen}" Aspect="AspectFit"/>
+                                        <Label Text="{Binding Nombre}"
+                                               FontSize="30"
+                                               Padding="10"/>
+                                        <Button Text="{Binding Nombre, StringFormat=VER RECETAS {0}}" 
+                                                BackgroundColor="Orange" 
+                                                Command="{Binding BindingContext.ShowRecetasCategoria, 
+                                            Source={x:Reference PageCarrousel}}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>-->
+                <ListView ItemsSource="{Binding Categorias}" 
+                          SelectedItem="{Binding CategoriaSeleccionada}"
+                          
+                          HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="20"
+                                   Padding="0">
+                                    <StackLayout>
+                                        <Image Source="{Binding Imagen}" Aspect="AspectFit"/>
+                                        <Label Text="{Binding Nombre}"
+                                               FontSize="30"
+                                               Padding="10"/>
+                                        <Button Text="{Binding Nombre, StringFormat=VER RECETAS {0}}" 
+                                                BackgroundColor="Orange" 
+                                                Command="{Binding BindingContext.ShowRecetasCategoria, 
+                                            Source={x:Reference PageCarrousel}}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            
+            </StackLayout>
+            <StackLayout>
+                <StackLayout.BindingContext>
+                    <viewmodels:ListaCategoriasModel/>
+                </StackLayout.BindingContext>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

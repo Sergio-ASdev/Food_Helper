@@ -1,0 +1,41 @@
+﻿/*
+Todo lo que funciona en CSS
+
+color
+background-color
+font-family
+font-size
+font-style
+height
+width
+border-color
+border-width
+visibility
+opacity
+text-align
+margin - left | right | top | bottom
+padding - left | right | top | bottom*/
+
+
+
+/* MAIN.XAML */
+#main frame {
+    background-color: #dedede;
+}
+
+#main label {
+    font-weight: bolder;
+}
+
+
+/* LISTARECETASVIEW.XAML*/
+
+/*no funciona con px*/
+#listarecetasview Frame {
+    height: 200;
+}
+
+.tituloreceta {
+    color: black;
+    font-size: 24;
+}

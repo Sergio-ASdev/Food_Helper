@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_helper.Views.ListaRecetasPorCategoria"
+             xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
+             xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding ListaRecetas}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <customviewcell:CustomViewCellControl  SelectedItemBackgroundColor="white">
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand">
+                                <Frame CornerRadius="20"
+                                    HorizontalOptions="FillAndExpand"
+                                       Margin="10"
+                                       HeightRequest="600"
+                                   Padding="0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Imagen}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label FontSize="15" TextColor="Blue" Text="{Binding NombreReceta}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </customviewcell:CustomViewCellControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

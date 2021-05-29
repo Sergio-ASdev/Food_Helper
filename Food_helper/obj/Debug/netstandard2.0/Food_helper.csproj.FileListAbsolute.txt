@@ -1,0 +1,12 @@
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Food_helper.csproj.AssemblyReference.cache
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\MasterdetailView.xaml.g.cs
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Views\ListaRecetasPorCategoria.xaml.g.cs
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Views\Main.xaml.g.cs
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Styles\estilos.css.g.cs
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Food_helper.AssemblyInfoInputs.cache
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Food_helper.AssemblyInfo.cs
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Food_helper.csproj.CoreCompileInputs.cache
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Food_helper.dll
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\ref\Food_helper.dll
+C:\Food-Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Food_helper.pdb
