@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Food_helper.Views.Main"
              xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
+             xmlns:customviecell="clr-namespace:Food_helper.CustomControlls"
              Title="Food Helper"
              x:Name="PageCarrousel">
     <ContentPage.BindingContext>
@@ -11,40 +12,19 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <!--<CarouselView HorizontalOptions="FillAndExpand" 
-                              HeightRequest="400"
-                              ItemsSource="{Binding Categorias}">
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Padding="10">
-                                <Frame CornerRadius="20"
-                                   Padding="0">
-                                    <StackLayout>
-                                        <Image Source="{Binding Imagen}" Aspect="AspectFit"/>
-                                        <Label Text="{Binding Nombre}"
-                                               FontSize="30"
-                                               Padding="10"/>
-                                        <Button Text="{Binding Nombre, StringFormat=VER RECETAS {0}}" 
-                                                BackgroundColor="Orange" 
-                                                Command="{Binding BindingContext.ShowRecetasCategoria, 
-                                            Source={x:Reference PageCarrousel}}"/>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>-->
                 <ListView ItemsSource="{Binding Categorias}" 
                           SelectedItem="{Binding CategoriaSeleccionada}"
-                          
                           HasUnevenRows="true">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                            <customviecell:CustomViewCellControl SelectedItemBackgroundColor="white">
                                 <Frame CornerRadius="20"
                                    Padding="0" Margin="10,6,10,70" >
                                     <StackLayout>
-                                        <Image HorizontalOptions="FillAndExpand"  Source="{Binding Imagen}"  WidthRequest="300" HeightRequest="250" VerticalOptions="FillAndExpand"/>
+                                        <Image HorizontalOptions="FillAndExpand"  Source="{Binding Imagen}"  
+                                               WidthRequest="300" 
+                                               HeightRequest="250" 
+                                               VerticalOptions="FillAndExpand"/>
                                         <!--
                                         <Label Text="{Binding Nombre}"
                                                FontSize="30"
@@ -57,7 +37,7 @@
                                             Source={x:Reference PageCarrousel}}"/>
                                     </StackLayout>
                                 </Frame>
-                            </ViewCell>
+                            </customviecell:CustomViewCellControl>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

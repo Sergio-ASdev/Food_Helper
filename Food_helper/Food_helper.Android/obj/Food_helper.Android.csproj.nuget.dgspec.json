@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj": {}
+    "C:\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj": {}
   },
   "projects": {
-    "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj": {
+    "C:\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj",
+        "projectUniqueName": "C:\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj",
         "projectName": "Food_helper.Android",
-        "projectPath": "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj",
-        "packagesPath": "C:\\Users\\SergioArribasSanchez\\.nuget\\packages\\",
-        "outputPath": "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper.Android\\obj\\",
+        "projectPath": "C:\\Food_helper\\Food_helper\\Food_helper.Android\\Food_helper.Android.csproj",
+        "packagesPath": "C:\\Users\\raulc\\.nuget\\packages\\",
+        "outputPath": "C:\\Food_helper\\Food_helper\\Food_helper.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\SergioArribasSanchez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\raulc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +34,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj": {
-                "projectPath": "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj"
+              "C:\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj": {
+                "projectPath": "C:\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj"
               }
             }
           }
@@ -70,20 +72,22 @@
         }
       }
     },
-    "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj": {
+    "C:\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj",
+        "projectUniqueName": "C:\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj",
         "projectName": "Food_helper",
-        "projectPath": "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj",
-        "packagesPath": "C:\\Users\\SergioArribasSanchez\\.nuget\\packages\\",
-        "outputPath": "E:\\PROYECTOS\\XAMARIN\\PROYECTO\\Food_helper\\Food_helper\\Food_helper\\obj\\",
+        "projectPath": "C:\\Food_helper\\Food_helper\\Food_helper\\Food_helper.csproj",
+        "packagesPath": "C:\\Users\\raulc\\.nuget\\packages\\",
+        "outputPath": "C:\\Food_helper\\Food_helper\\Food_helper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\SergioArribasSanchez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\raulc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -151,7 +155,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
