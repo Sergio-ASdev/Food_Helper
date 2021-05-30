@@ -32,3 +32,4 @@ E:\PROYECTOS\XAMARIN\PROYECTO\Food_helper\Food_helper\Food_helper\obj\Debug\nets
 E:\PROYECTOS\XAMARIN\PROYECTO\Food_helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Food_helper.pdb
 E:\PROYECTOS\XAMARIN\PROYECTO\Food_helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Styles\Estilos.css.g.cs
 C:\Food_Helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Styles\Estilos.css.g.cs
+C:\Food_helper\Food_helper\Food_helper\obj\Debug\netstandard2.0\Views\DetallesRecetaView.xaml.g.cs

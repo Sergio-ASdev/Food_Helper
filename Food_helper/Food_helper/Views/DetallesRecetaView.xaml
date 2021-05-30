@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
+             x:Class="Food_helper.Views.DetallesRecetaView">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Image BackgroundColor="black" Source="{Binding Receta.Imagen}"/>-->
+            <!--<Image BackgroundColor="black"/>-->
+            <Label Text="{Binding Receta.NombreReceta}"/>
+            <ListView ItemsSource="{Binding IngredientesCantidad}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="Aqua">
+                                <Label Text="{Binding NombreIngrediente}" FontSize="30"/>
+                                <Label Text="{Binding Cantidad}" FontSize="30"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="{Binding Receta.Preparacion}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
