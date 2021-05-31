@@ -20,20 +20,38 @@ namespace Food_helper.Services
         private void RegisterDependencies()
         {
             ContainerBuilder builder = new ContainerBuilder();
-            //REGISTRAMOS TODAS LAS CLASES QUE TENGAN
-            //INYECCION DE DEPENDENCIAS
-            // builder.RegisterType<RepositoryListaRecetas>();
-            builder.RegisterType<ListaRecetasPorCategoria>();
-            //CREAMOS EL CONTENEDOR
+
+            builder.RegisterType<ServiceRecetas>();
+            builder.RegisterType<MainCategoriasViewModel>();
+            builder.RegisterType<RecetasCategoriaViewModel>();
+            builder.RegisterType<DetallesRecetaViewModel>();
+
+
             this.container = builder.Build();
         }
 
-        public ListaRecetasCategoriaModel ListaRecetasModel
+        public MainCategoriasViewModel MainCategoriasViewModel
         {
             get
             {
                 return
-                    this.container.Resolve<ListaRecetasCategoriaModel>();
+                    this.container.Resolve<MainCategoriasViewModel>();
+            }
+        }
+        public RecetasCategoriaViewModel RecetasCategoriaViewModel
+        {
+            get
+            {
+                return
+                    this.container.Resolve<RecetasCategoriaViewModel>();
+            }
+        }
+        public DetallesRecetaViewModel DetallesRecetaViewModel
+        {
+            get
+            {
+                return
+                    this.container.Resolve<DetallesRecetaViewModel>();
             }
         }
     }

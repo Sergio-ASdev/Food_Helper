@@ -22,7 +22,9 @@
 
                     <StackLayout Orientation="Vertical" Margin="10,4,6,0">
                         <Label Text="Lista de ingredientes" FontSize="13" Font="Bold,24" TextColor="Black"/>
-                        <ListView ItemsSource="{Binding IngredientesCantidad}" HasUnevenRows="True" Margin="14,0,0,0">
+                        <ListView ItemsSource="{Binding IngredientesCantidad}" HasUnevenRows="True" 
+                                  
+                                  Margin="14,0,0,0">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <customviewcell:CustomViewCellControl SelectedItemBackgroundColor="White">

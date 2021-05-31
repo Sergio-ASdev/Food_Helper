@@ -21,7 +21,6 @@ namespace Food_helper
         public App()
         {
             InitializeComponent();
-            //ESTA VERSION FUNCIONA
             MainPage = new MasterdetailView();
         }
 

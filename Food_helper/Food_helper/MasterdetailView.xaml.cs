@@ -19,20 +19,16 @@ namespace Food_helper
             InitializeComponent();
             ObservableCollection<MasterDetailItem> items = 
                 new ObservableCollection<MasterDetailItem>();
-            var paginaRecetas = new MasterDetailItem()
-            {
-                TipoPagina = typeof(ListaRecetasPorCategoria),
-                Titulo = "Descubre nuestras recetas"
-            };
+
             var paginaPrincipal= new MasterDetailItem()
             {
-                TipoPagina = typeof(Main),
+                TipoPagina = typeof(MainCategoriasView),
                 Titulo = "Inicio"
             };
-            items.Add(paginaRecetas);
+
             items.Add(paginaPrincipal);
             this.lisviewMenu.ItemsSource = items;
-            this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Main)));
+            this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(MainCategoriasView)));
             this.lisviewMenu.ItemSelected += LisviewMenu_ItemSelected;
         }
 

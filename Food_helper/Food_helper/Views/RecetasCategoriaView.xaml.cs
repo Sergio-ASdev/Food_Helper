@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Food_helper.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ListaRecetasPorCategoria : ContentPage
+    public partial class RecetasCategoriaView : ContentPage
     {
-        public ListaRecetasPorCategoria()
+        public RecetasCategoriaView()
         {
             InitializeComponent();
         }

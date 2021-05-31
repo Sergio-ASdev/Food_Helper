@@ -1,26 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Food_helper.Views.ListaRecetasPorCategoria"
+             x:Class="Food_helper.Views.RecetasCategoriaView"
              xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
              x:Name="PageRecetasCategoria"
+             xmlns:local="clr-namespace:Food_helper"
              xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls">
-    <ContentPage.BindingContext>
-        <viewmodels:ListaRecetasCategoriaModel/>
-    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
 
-            <ListView ItemsSource="{Binding ListaRecetas}" 
-                      HasUnevenRows="true"
-                      SelectedItem="{Binding RecetaSeleccionada}">
+            <ListView ItemsSource="{Binding Recetas}" 
+                      HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        
+
                         <customviewcell:CustomViewCellControl  SelectedItemBackgroundColor="white">
-                            
+
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                
+
                                 <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="250" Padding="0">
 
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
@@ -33,16 +31,17 @@
                                             <Button Text="VER MÁS" 
                                                 BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
                                                 Command="{Binding BindingContext.MostrarReceta, 
-                                                Source={x:Reference PageRecetasCategoria}}"/>
+                                                Source={x:Reference PageRecetasCategoria}}"
+                                                    CommandParameter="{Binding .}"/>
                                         </StackLayout>
                                     </StackLayout>
-                                    
+
                                 </Frame>
-                                
+
                             </StackLayout>
-                            
+
                         </customviewcell:CustomViewCellControl>
-                        
+
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

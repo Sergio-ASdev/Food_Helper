@@ -12,12 +12,12 @@ using Xamarin.Forms;
 
 namespace Food_helper.ViewModels
 {
-    public class ListaCategoriasModel : ViewModelBase
+    public class MainCategoriasViewModel : ViewModelBase
     {
         public ServiceRecetas service;
-        public ListaCategoriasModel()
+        public MainCategoriasViewModel(ServiceRecetas service)
         {
-            this.service = new ServiceRecetas();
+            this.service = service;
             Task.Run(async () =>
             {
                 List<Categoria> categorias = await service.GetCategorias();
@@ -34,31 +34,27 @@ namespace Food_helper.ViewModels
                 OnPropertyChanged("Categorias");
             }
         }
-        private Categoria _CategoriaSeleccionada;
-        public Categoria CategoriaSeleccionada
+       
+        public async void LoadCategorias()
         {
-            get { return this._CategoriaSeleccionada; }
-            set
-            {
-                this._CategoriaSeleccionada = value;
-                OnPropertyChanged("CategoriaSeleccionada");
-            }
+            List<Categoria> categorias = await service.GetCategorias();
+            this.Categorias = new ObservableCollection<Categoria>(categorias);
         }
         public Command ShowRecetasCategoria
         {
             get
             {
-                return new Command(async () =>
+                return new Command(async (categoria) =>
                 {
-                    CategoriaViewModel viewmodel =
-                    new CategoriaViewModel();
-                    viewmodel.Categoria = this.CategoriaSeleccionada;
-                    List<Receta> recetas = await service.GetRecetasCategoria(this.CategoriaSeleccionada.Nombre);
-                    ObservableCollection<Receta> ocrecetas = new ObservableCollection<Receta>(recetas);
-                    viewmodel.ListaRecetas = ocrecetas;
-                    ListaRecetasPorCategoria view = new ListaRecetasPorCategoria();
+                    Categoria cat = categoria as Categoria;
+                    RecetasCategoriaViewModel viewmodel = 
+                        App.ServiceLocator.RecetasCategoriaViewModel;
+                    RecetasCategoriaView view = new RecetasCategoriaView();
+                    List<Receta> recetas = await service.GetRecetasCategoria(cat.Nombre);
+                    viewmodel.Recetas = new ObservableCollection<Receta>(recetas);
                     view.BindingContext = viewmodel;
                     await Application.Current.MainPage.Navigation.PushModalAsync(view);
+                  
                 });
             }
         }

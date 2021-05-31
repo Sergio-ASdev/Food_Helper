@@ -1,17 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Food_helper.Views.Main"
-             xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
+             x:Class="Food_helper.Views.MainCategoriasView"
              xmlns:customviecell="clr-namespace:Food_helper.CustomControlls"
+             xmlns:local="clr-namespace:Food_helper"
              Title="Food Helper"
              x:Name="PageCarrousel">
-    <ContentPage.BindingContext>
-        <viewmodels:ListaCategoriasModel/>
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout>
+            <StackLayout x:Name="StackCategorias" BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=MainCategoriasViewModel}">
                 <ListView ItemsSource="{Binding Categorias}" 
                           SelectedItem="{Binding CategoriaSeleccionada}"
                           HasUnevenRows="true">
@@ -34,21 +31,17 @@
                                         <Button Text="{Binding Nombre, StringFormat=VER RECETAS {0}}" 
                                                 BackgroundColor="Orange" FontSize="18" Font="Bold,19"
                                                 Command="{Binding BindingContext.ShowRecetasCategoria, 
-                                            Source={x:Reference PageCarrousel}}"/>
+                                            Source={x:Reference StackCategorias}}"
+                                                CommandParameter="{Binding .}"/>
                                     </StackLayout>
                                 </Frame>
                             </customviecell:CustomViewCellControl>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            
+
             </StackLayout>
-            <StackLayout>
-                <StackLayout.BindingContext>
-                    <viewmodels:ListaCategoriasModel/>
-                </StackLayout.BindingContext>
-                
-            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
