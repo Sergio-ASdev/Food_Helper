@@ -2,25 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
-             x:Class="Food_helper.Views.DetallesRecetaView">
+             x:Class="Food_helper.Views.DetallesRecetaView"
+             xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls">
     <ContentPage.Content>
-        <StackLayout>
-            <!--<Image BackgroundColor="black" Source="{Binding Receta.Imagen}"/>-->
-            <!--<Image BackgroundColor="black"/>-->
-            <Label Text="{Binding Receta.NombreReceta}"/>
-            <ListView ItemsSource="{Binding IngredientesCantidad}" HasUnevenRows="true">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout BackgroundColor="Aqua">
-                                <Label Text="{Binding NombreIngrediente}" FontSize="30"/>
-                                <Label Text="{Binding Cantidad}" FontSize="30"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Label Text="{Binding Receta.Preparacion}"/>
-        </StackLayout>
+        <Grid>
+            <Image Opacity="1" Source="cuaderno.png" Aspect="AspectFill"/>
+            <ScrollView VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="5,5,5,5">
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                    
+                    <Label Text="{Binding Receta.NombreReceta}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
+                           FontSize="15" Margin="8,4,12,4" TextColor="Black" Font="Bold,34" BackgroundColor="Orange"/>
+                    
+                    <Image Margin="5,5,5,5" HorizontalOptions="Center" WidthRequest="400" HeightRequest="225" Source="{Binding Receta.Imagen}"/>
+                    
+                    <StackLayout Orientation="Vertical" Margin="7,4,10,5">
+                        <Label Text="Preparación" FontSize="13" Font="Bold,24" TextColor="Black" />
+                        <Label Text="{Binding Receta.Preparacion}" TextColor="Black" HorizontalTextAlignment="Start" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" Margin="10,4,6,0">
+                        <Label Text="Lista de ingredientes" FontSize="13" Font="Bold,24" TextColor="Black"/>
+                        <ListView ItemsSource="{Binding IngredientesCantidad}" HasUnevenRows="True" Margin="14,0,0,0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <customviewcell:CustomViewCellControl SelectedItemBackgroundColor="White">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                                            <Label Text="{Binding Cantidad}" FontSize="20" TextColor="Gray"/>
+                                            <Label Text="{Binding NombreIngrediente}" FontSize="20" TextColor="Gray"/>
+                                        </StackLayout>
+                                    </customviewcell:CustomViewCellControl>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

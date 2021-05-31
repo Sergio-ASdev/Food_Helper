@@ -21,17 +21,17 @@
                             
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                 
-                                <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="600" Padding="0">
+                                <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="250" Padding="0">
 
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
-                                        <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250" HeightRequest="250"/>
-                                        <StackLayout Orientation="Vertical">
+                                        <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250"/>
+                                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                                             <Label HorizontalOptions="StartAndExpand" Text="{Binding NombreReceta}" 
-                                                   StyleClass="tituloreceta" FontSize="18" />
+                                                   StyleClass="tituloreceta" FontSize="18" Margin="5,0,5,5" HorizontalTextAlignment="Start"/>
 
                                             <Button Text="VER MÁS" 
-                                                BackgroundColor="Orange" FontSize="18"
+                                                BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
                                                 Command="{Binding BindingContext.MostrarReceta, 
                                                 Source={x:Reference PageRecetasCategoria}}"/>
                                         </StackLayout>

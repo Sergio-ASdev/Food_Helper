@@ -18,8 +18,8 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <customviecell:CustomViewCellControl SelectedItemBackgroundColor="white">
-                                <Frame CornerRadius="20"
-                                   Padding="0" Margin="10,6,10,70" >
+                                <Frame CornerRadius="5"
+                                   Padding="0" Margin="10,8,10,70" BackgroundColor="#ffecc7">
                                     <StackLayout>
                                         <Image HorizontalOptions="FillAndExpand"  Source="{Binding Imagen}"  
                                                WidthRequest="300" 
@@ -32,7 +32,7 @@
                                         -->
 
                                         <Button Text="{Binding Nombre, StringFormat=VER RECETAS {0}}" 
-                                                BackgroundColor="Orange" FontSize="18"
+                                                BackgroundColor="Orange" FontSize="18" Font="Bold,19"
                                                 Command="{Binding BindingContext.ShowRecetasCategoria, 
                                             Source={x:Reference PageCarrousel}}"/>
                                     </StackLayout>
