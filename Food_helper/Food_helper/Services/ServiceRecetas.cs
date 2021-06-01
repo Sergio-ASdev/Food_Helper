@@ -56,5 +56,12 @@ namespace Food_helper.Services
                 await CallApi<List<IngredienteCantidad>>(request);
             return ingredientesCantidad;
         }
+        public async Task<List<Receta>> GetRecetas()
+        {
+            String request = "/api/Recetas/GetRecetas";
+            List<Receta> recetas = 
+                await CallApi<List<Receta>>(request);
+            return recetas;
+        }
     }
 }

@@ -25,8 +25,14 @@ namespace Food_helper
                 TipoPagina = typeof(MainCategoriasView),
                 Titulo = "Inicio"
             };
-
+            var searchrecetas= new MasterDetailItem()
+            {
+                TipoPagina = typeof(SearchRecetasView),
+                Titulo = "Busca tu receta"
+            };
+            
             items.Add(paginaPrincipal);
+            items.Add(searchrecetas);
             this.lisviewMenu.ItemsSource = items;
             this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(MainCategoriasView)));
             this.lisviewMenu.ItemSelected += LisviewMenu_ItemSelected;

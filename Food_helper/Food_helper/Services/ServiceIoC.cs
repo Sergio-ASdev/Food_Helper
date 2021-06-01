@@ -25,6 +25,7 @@ namespace Food_helper.Services
             builder.RegisterType<MainCategoriasViewModel>();
             builder.RegisterType<RecetasCategoriaViewModel>();
             builder.RegisterType<DetallesRecetaViewModel>();
+            builder.RegisterType<SearchRecetasViewModel>();
 
 
             this.container = builder.Build();
@@ -52,6 +53,14 @@ namespace Food_helper.Services
             {
                 return
                     this.container.Resolve<DetallesRecetaViewModel>();
+            }
+        }
+        public SearchRecetasViewModel SearchRecetasViewModel
+        {
+            get
+            {
+                return
+                    this.container.Resolve<SearchRecetasViewModel>();
             }
         }
     }
