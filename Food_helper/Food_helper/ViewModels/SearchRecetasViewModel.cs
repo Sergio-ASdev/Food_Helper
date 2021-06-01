@@ -1,4 +1,5 @@
 ﻿using Food_helper.Base;
+using Food_helper.Repositories;
 using Food_helper.Services;
 using Food_helper.Views;
 using NuGetFoodHelper.Models;
@@ -16,8 +17,10 @@ namespace Food_helper.ViewModels
     public class SearchRecetasViewModel:ViewModelBase
     {
         ServiceRecetas service;
+
         public SearchRecetasViewModel(ServiceRecetas service)
         {
+
             this.service = service;
             Task.Run(async ()=> {
                 Recetas = await service.GetRecetas();
@@ -84,6 +87,27 @@ namespace Food_helper.ViewModels
                     viewmodel.Receta = rec;
                     view.BindingContext = viewmodel;
                     await Application.Current.MainPage.Navigation.PushModalAsync(view);
+                });
+            }
+        }
+        public Command Favorito
+        {
+            get
+            {
+                return new Command(async (receta) =>
+                {
+                    //repo.InsertReceta(receta as Receta);
+                });
+            }
+        }
+        public Command DeleteFavorito
+        {
+            get
+            {
+                return new Command(async (receta) =>
+                {
+                    Receta r = receta as Receta;
+                    //repo.DeleteReceta(r.IdReceta);
                 });
             }
         }

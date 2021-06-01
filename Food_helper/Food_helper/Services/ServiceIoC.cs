@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Food_helper.Repositories;
 using Food_helper.ViewModels;
 using Food_helper.Views;
 using System;
@@ -22,6 +23,7 @@ namespace Food_helper.Services
             ContainerBuilder builder = new ContainerBuilder();
 
             builder.RegisterType<ServiceRecetas>();
+            builder.RegisterType<RepositoryFavoritos>();
             builder.RegisterType<MainCategoriasViewModel>();
             builder.RegisterType<RecetasCategoriaViewModel>();
             builder.RegisterType<DetallesRecetaViewModel>();

@@ -12,17 +12,54 @@
                        SearchCommand="{Binding PerformSearch}"
                        SearchCommandParameter="{Binding Text,Source={x:Reference searchbar}}"/>
             <ListView x:Name="SearchResult"
+                      HasUnevenRows="true"
                 ItemsSource="{Binding FilteredRecetas}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding NombreReceta}"/>
-                                <Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
-                                        Command="{Binding BindingContext.MostrarReceta, 
-                                                Source={x:Reference PageBusqueda}}"
-                                                    CommandParameter="{Binding .}"/>
-                            </StackLayout>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem 
+                                            Text="Ver Receta"
+                                            IconImageSource=""
+                                            BackgroundColor="Blue"
+                                            Command="{Binding BindingContext.MostrarReceta,
+                                            Source={x:Reference PageBusqueda}}"
+                                            CommandParameter="{Binding .}"/>  
+                                        <SwipeItem 
+                                            Text="Añadir favorito"
+                                            IconImageSource=""
+                                            BackgroundColor="Blue"
+                                            Command="{Binding BindingContext.Favorito,
+                                            Source={x:Reference PageBusqueda}}"
+                                            CommandParameter="{Binding .}"/> 
+                                        <SwipeItem 
+                                            Text="Borrar favorito"
+                                            IconImageSource=""
+                                            BackgroundColor="Blue"
+                                            Command="{Binding BindingContext.DeleteFavorito,
+                                            Source={x:Reference PageBusqueda}}"
+                                            CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        
+                                    </SwipeItems>    
+                                </SwipeView.RightItems>
+                                <Frame CornerRadius="10" Margin="10">
+                                    <StackLayout>
+                                        <Label Text="{Binding NombreReceta}"/>
+                                        <!--<Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
+                                        Command="{Binding BindingContext.MostrarReceta,
+                                        Source={x:Reference PageBusqueda}}"
+                                        CommandParameter="{Binding .}"/>-->
+                                    </StackLayout>
+                                </Frame>
+                            </SwipeView>
+
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
