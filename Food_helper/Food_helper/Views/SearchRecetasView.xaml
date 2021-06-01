@@ -18,6 +18,10 @@
                         <ViewCell>
                             <StackLayout>
                                 <Label Text="{Binding NombreReceta}"/>
+                                <Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
+                                        Command="{Binding BindingContext.MostrarReceta, 
+                                                Source={x:Reference PageBusqueda}}"
+                                                    CommandParameter="{Binding .}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

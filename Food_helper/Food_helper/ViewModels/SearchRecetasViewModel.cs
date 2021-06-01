@@ -1,5 +1,6 @@
 ﻿using Food_helper.Base;
 using Food_helper.Services;
+using Food_helper.Views;
 using NuGetFoodHelper.Models;
 using System;
 using System.Collections.Generic;
@@ -66,5 +67,26 @@ namespace Food_helper.ViewModels
             FilteredRecetas = new ObservableCollection<Receta>(
                 Recetas.Where(o => o.NombreReceta.ToLower().Contains(query.ToLower())));
         });
+
+        public Command MostrarReceta
+        {
+            get
+            {
+                return new Command(async (receta) => {
+                    Receta rec = receta as Receta;
+                    DetallesRecetaViewModel viewmodel =
+                        App.ServiceLocator.DetallesRecetaViewModel;
+                    DetallesRecetaView view = new DetallesRecetaView();
+                    List<IngredienteCantidad> ingredientes =
+                    await service.GetIngredientesIdReceta(rec.IdReceta);
+                    viewmodel.IngredientesCantidad =
+                        new ObservableCollection<IngredienteCantidad>(ingredientes);
+                    viewmodel.Receta = rec;
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation.PushModalAsync(view);
+                });
+            }
+        }
+
     }
 }
