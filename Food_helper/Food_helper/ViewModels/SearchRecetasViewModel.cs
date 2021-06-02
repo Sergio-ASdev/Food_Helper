@@ -96,9 +96,21 @@ namespace Food_helper.ViewModels
             {
                 return new Command(async (receta) =>
                 {
-                    repo.InsertReceta(receta as Receta);
-                    MessagingCenter.Send(App.ServiceLocator.FavoritosViewModel
-                , "refresh");
+                    Receta r = receta as Receta;
+                    if (repo.GetReceta(r.IdReceta) != null)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Favoritos"
+                            , r.NombreReceta + "ya se encuentra en tu lista de favoritos", "OK");
+                    }
+                    else
+                    {
+                        repo.InsertReceta(r);
+                        MessagingCenter.Send(App.ServiceLocator.FavoritosViewModel
+                        , "refresh");
+                        await Application.Current.MainPage.DisplayAlert("Favoritos"
+                        , r.NombreReceta + " añadido a tu lista de favoritos", "OK");
+
+                    }
                 });
             }
         }
@@ -112,6 +124,8 @@ namespace Food_helper.ViewModels
                     repo.DeleteReceta(r.IdReceta);
                     MessagingCenter.Send(App.ServiceLocator.FavoritosViewModel
                 , "refresh");
+                    await Application.Current.MainPage.DisplayAlert("Favoritos"
+                        , r.NombreReceta + "eliminado de tu lista de favoritos", "OK");
                 });
             }
         }

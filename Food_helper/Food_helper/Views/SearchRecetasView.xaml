@@ -34,13 +34,6 @@
                                             Command="{Binding BindingContext.Favorito,
                                             Source={x:Reference PageBusqueda}}"
                                             CommandParameter="{Binding .}"/> 
-                                        <SwipeItem 
-                                            Text="Borrar favorito"
-                                            IconImageSource=""
-                                            BackgroundColor="Blue"
-                                            Command="{Binding BindingContext.DeleteFavorito,
-                                            Source={x:Reference PageBusqueda}}"
-                                            CommandParameter="{Binding .}"/>
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
                                 <SwipeView.RightItems>

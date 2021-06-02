@@ -76,7 +76,14 @@ namespace Food_helper.Repositories
             var query = from datos in this.cn.Table<RecetaFavorita>()
                         where datos.IdReceta == id
                         select datos;
-            return ConvertToReceta(query.FirstOrDefault());
+            if (query.FirstOrDefault() != null)
+            {
+                return ConvertToReceta(query.FirstOrDefault());
+            }
+            else
+            {
+                return null;
+            }
         }
         public List<Receta> GetRecetas()
         {
