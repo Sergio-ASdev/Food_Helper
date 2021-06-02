@@ -1,13 +1,17 @@
 ﻿using NuGetFoodHelper.Models;
-using Realms;
+using SQLite;
+//using Realms;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Food_helper.Models
 {
-    public class RecetaFavorita:RealmObject
+    [Table("RECETAS")]
+    public class RecetaFavorita
+    //public class RecetaFavorita:RealmObject
     {
+        [PrimaryKey]
         public int IdReceta { get; set; }
         public string NombreReceta { get; set; }
         public string Tipo { get; set; }

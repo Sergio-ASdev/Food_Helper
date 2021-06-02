@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_helper.Views.FavoritosView"
+             xmlns:local="clr-namespace:Food_helper"
+             x:Name="PageFavoritos"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=FavoritosViewModel}"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView HasUnevenRows="true"
+                ItemsSource="{Binding Recetas}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem 
+                                            Text="Ver Receta"
+                                            IconImageSource=""
+                                            BackgroundColor="Blue"
+                                            Command="{Binding BindingContext.MostrarReceta,
+                                            Source={x:Reference PageFavoritos}}"
+                                            CommandParameter="{Binding .}"/>
+                                        <SwipeItem 
+                                            Text="Borrar favorito"
+                                            IconImageSource=""
+                                            BackgroundColor="Blue"
+                                            Command="{Binding BindingContext.DeleteFavorito,
+                                            Source={x:Reference PageFavoritos}}"
+                                            CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Frame CornerRadius="10" Margin="10">
+                                    <StackLayout>
+                                        <Label Text="{Binding NombreReceta}"/>
+                                        <!--<Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
+                                        Command="{Binding BindingContext.MostrarReceta,
+                                        Source={x:Reference PageBusqueda}}"
+                                        CommandParameter="{Binding .}"/>-->
+                                    </StackLayout>
+                                </Frame>
+                            </SwipeView>
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

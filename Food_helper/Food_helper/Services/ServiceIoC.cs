@@ -28,6 +28,7 @@ namespace Food_helper.Services
             builder.RegisterType<RecetasCategoriaViewModel>();
             builder.RegisterType<DetallesRecetaViewModel>();
             builder.RegisterType<SearchRecetasViewModel>();
+            builder.RegisterType<FavoritosViewModel>();
 
 
             this.container = builder.Build();
@@ -39,6 +40,14 @@ namespace Food_helper.Services
             {
                 return
                     this.container.Resolve<MainCategoriasViewModel>();
+            }
+        }
+        public FavoritosViewModel FavoritosViewModel
+        {
+            get
+            {
+                return
+                    this.container.Resolve<FavoritosViewModel>();
             }
         }
         public RecetasCategoriaViewModel RecetasCategoriaViewModel

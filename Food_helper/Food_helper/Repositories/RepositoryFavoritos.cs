@@ -2,18 +2,37 @@
 
 using Food_helper.Models;
 using NuGetFoodHelper.Models;
-using Realms;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace Food_helper.Repositories
 {
     public class RepositoryFavoritos
     {
-        private Realm connection;
+        SQLiteConnection cn;
+
         public RepositoryFavoritos()
         {
-            this.connection = Realm.GetInstance();
+            this.cn =
+            DependencyService.Get<IDataBase>().GetConnection();
+            CrearBBDD();
+
+        }
+        public void CrearBBDD()
+        {
+            
+            var tableinfo = this.cn.GetTableInfo("RECETAS");
+
+            if(tableinfo.Count == 0)
+            {
+                this.cn.DropTable<RecetaFavorita>();
+                this.cn.CreateTable<RecetaFavorita>();
+
+            }
+            
         }
         public RecetaFavorita ConvertToRecetaFavorita(Receta receta)
         {
@@ -45,37 +64,29 @@ namespace Food_helper.Repositories
         }
         public void InsertReceta(Receta receta)
         {
-            using (Transaction trans = this.connection.BeginWrite())
-            {
-                RecetaFavorita favorita = ConvertToRecetaFavorita(receta);
-                connection.Add(favorita);
-                trans.Commit();
-            }
+            cn.Insert(ConvertToRecetaFavorita(receta));
         }
         public void DeleteReceta(int id)
         {
-            Receta receta = GetReceta(id);
-            using (Transaction transaction =
-                this.connection.BeginWrite())
-            {
-                this.connection.Remove(ConvertToRecetaFavorita(receta));
-                transaction.Commit();
-            }
-
+            RecetaFavorita receta = ConvertToRecetaFavorita(GetReceta(id));
+            cn.Delete(receta);
         }
         public Receta GetReceta(int id)
         {
-            Receta rec = GetRecetas().FirstOrDefault(x=>x.IdReceta==id);
-            return rec;
+            var query = from datos in this.cn.Table<RecetaFavorita>()
+                        where datos.IdReceta == id
+                        select datos;
+            return ConvertToReceta(query.FirstOrDefault());
         }
         public List<Receta> GetRecetas()
         {
-            List<RecetaFavorita> recetasfavoritas = connection.All<RecetaFavorita>().ToList();
+            var query = from datos in this.cn.Table<RecetaFavorita>()
+                        select datos;
             List<Receta> recetas = new List<Receta>();
-            foreach(RecetaFavorita receta in recetasfavoritas)
+            foreach(RecetaFavorita r in query.ToList())
             {
-                Receta r = ConvertToReceta(receta);
-                recetas.Add(r);
+                Receta receta = ConvertToReceta(r);
+                recetas.Add(receta);
             }
             return recetas;
         }

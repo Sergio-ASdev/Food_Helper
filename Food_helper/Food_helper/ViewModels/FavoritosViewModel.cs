@@ -6,71 +6,35 @@ using NuGetFoodHelper.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Food_helper.ViewModels
 {
-    public class SearchRecetasViewModel:ViewModelBase
+    public class FavoritosViewModel:ViewModelBase
     {
         ServiceRecetas service;
         RepositoryFavoritos repo;
-        public SearchRecetasViewModel(ServiceRecetas service,RepositoryFavoritos repo)
+        public FavoritosViewModel(ServiceRecetas service, RepositoryFavoritos repo)
         {
-            this.repo = repo;
             this.service = service;
-            Task.Run(async ()=> {
-                Recetas = await service.GetRecetas();
+            this.repo = repo;
+            Recetas = new ObservableCollection<Receta>(repo.GetRecetas());
+            MessagingCenter.Subscribe<FavoritosViewModel>(this, "refresh", (sender) =>
+            {
+                Recetas = new ObservableCollection<Receta>(repo.GetRecetas());
             });
         }
-        private String _Busqueda;
-        public String Busqueda
+        private ObservableCollection<Receta> _Recetas;
+        public ObservableCollection<Receta> Recetas
         {
-            get
-            {
-                return this._Busqueda;
-            }
-            set
-            {
-                this._Busqueda = value;
-                OnPropertyChanged("Busqueda");
-            }
-        }
-        private ObservableCollection<Receta> _FilteredRecetas;
-        public ObservableCollection<Receta> FilteredRecetas
-        {
-            get
-            {
-                return this._FilteredRecetas;
-            }
-            set
-            {
-                this._FilteredRecetas = value;
-                OnPropertyChanged("FilteredRecetas");
-            }
-        }
-        private List<Receta> _Recetas;
-        public List<Receta> Recetas
-        {
-            get
-            {
-                return this._Recetas;
-            }
+            get { return this._Recetas; }
             set
             {
                 this._Recetas = value;
+                OnPropertyChanged("Recetas");
             }
         }
-
-        public ICommand PerformSearch => new Command<string>((string query) =>
-        {
-            FilteredRecetas = new ObservableCollection<Receta>(
-                Recetas.Where(o => o.NombreReceta.ToLower().Contains(query.ToLower())));
-        });
-
         public Command MostrarReceta
         {
             get
@@ -97,8 +61,6 @@ namespace Food_helper.ViewModels
                 return new Command(async (receta) =>
                 {
                     repo.InsertReceta(receta as Receta);
-                    MessagingCenter.Send(App.ServiceLocator.FavoritosViewModel
-                , "refresh");
                 });
             }
         }
@@ -110,8 +72,7 @@ namespace Food_helper.ViewModels
                 {
                     Receta r = receta as Receta;
                     repo.DeleteReceta(r.IdReceta);
-                    MessagingCenter.Send(App.ServiceLocator.FavoritosViewModel
-                , "refresh");
+                    Recetas = new ObservableCollection<Receta>(repo.GetRecetas());
                 });
             }
         }
