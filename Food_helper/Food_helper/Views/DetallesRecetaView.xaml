@@ -4,6 +4,7 @@
              xmlns:viewmodels="clr-namespace:Food_helper.ViewModels"
              x:Class="Food_helper.Views.DetallesRecetaView"
              xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls">
+
     <ContentPage.Content>
         <Grid>
             <Image Opacity="1" Source="cuaderno.png" Aspect="AspectFill"/>
@@ -11,17 +12,17 @@
                 <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                     
                     <Label Text="{Binding Receta.NombreReceta}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
-                           FontSize="15" Margin="8,4,12,4" TextColor="Black" Font="Bold,34" BackgroundColor="Orange"/>
+                           FontSize="15" Margin="8,4,12,4" TextColor="White" Font="Bold,34" BackgroundColor="Black"/>
                     
                     <Image Margin="5,5,5,5" HorizontalOptions="Center" WidthRequest="400" HeightRequest="225" Source="{Binding Receta.Imagen}"/>
                     
                     <StackLayout Orientation="Vertical" Margin="7,4,10,5">
-                        <Label Text="Preparación" FontSize="13" Font="Bold,24" TextColor="Black" />
-                        <Label Text="{Binding Receta.Preparacion}" TextColor="Black" HorizontalTextAlignment="Start" />
+                        <Label Text="Preparación" FontSize="13" Font="Bold,24" TextColor="Black" HorizontalTextAlignment="Center"/>
+                        <Label Text="{Binding Receta.Preparacion}" TextColor="Black" HorizontalTextAlignment="Center" />
                     </StackLayout>
 
                     <StackLayout Orientation="Vertical" Margin="10,4,6,0">
-                        <Label Text="Lista de ingredientes" FontSize="13" Font="Bold,24" TextColor="Black"/>
+                        <Label Text="Lista de ingredientes" FontSize="13" Font="Bold,24" TextColor="Black" HorizontalTextAlignment="Center"/>
                         <ListView ItemsSource="{Binding IngredientesCantidad}" HasUnevenRows="True" 
                                   
                                   Margin="14,0,0,0">
@@ -29,8 +30,8 @@
                                 <DataTemplate>
                                     <customviewcell:CustomViewCellControl SelectedItemBackgroundColor="White">
                                         <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                                            <Label Text="{Binding Cantidad}" FontSize="20" TextColor="Gray"/>
-                                            <Label Text="{Binding NombreIngrediente}" FontSize="20" TextColor="Gray"/>
+                                            <Label Text="{Binding Cantidad}" FontSize="20" TextColor="Gray" WidthRequest="150" HorizontalTextAlignment="End"/>
+                                            <Label Text=" {Binding NombreIngrediente}" FontSize="20" TextColor="Gray" Margin="8,0,0,0"/>
                                         </StackLayout>
                                     </customviewcell:CustomViewCellControl>
                                 </DataTemplate>

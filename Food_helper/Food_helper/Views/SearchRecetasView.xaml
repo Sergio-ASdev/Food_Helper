@@ -4,6 +4,7 @@
              x:Class="Food_helper.Views.SearchRecetasView"
              xmlns:local="clr-namespace:Food_helper"
              x:Name="PageBusqueda"
+             Title="Buscador de Recetas"
              BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=SearchRecetasViewModel}">
     <ContentPage.Content>
         <StackLayout>
@@ -41,9 +42,9 @@
                                         
                                     </SwipeItems>    
                                 </SwipeView.RightItems>
-                                <Frame CornerRadius="10" Margin="10">
-                                    <StackLayout>
-                                        <Label Text="{Binding NombreReceta}"/>
+                                <Frame Margin="10" HeightRequest="36" BackgroundColor="White">
+                                    <StackLayout Margin="10" BackgroundColor="White">
+                                        <Label Text="{Binding NombreReceta}" Font="Bold,14"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="38"/>
                                         <!--<Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
                                         Command="{Binding BindingContext.MostrarReceta,
                                         Source={x:Reference PageBusqueda}}"

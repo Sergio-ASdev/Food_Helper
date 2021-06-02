@@ -25,11 +25,11 @@
 
                                         <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250"/>
                                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                                            <Label HorizontalOptions="StartAndExpand" Text="{Binding NombreReceta}" 
-                                                   StyleClass="tituloreceta" FontSize="18" Margin="5,0,5,5" HorizontalTextAlignment="Start"/>
+                                            <Label HorizontalOptions="StartAndExpand" Text="{Binding NombreReceta}"  Font="Bold"
+                                                   StyleClass="tituloreceta" FontSize="18" Margin="3,0,5,2" HorizontalTextAlignment="Center"/>
 
                                             <Button Text="VER MÁS" 
-                                                BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
+                                                BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0" Font="Bold"
                                                 Command="{Binding BindingContext.MostrarReceta, 
                                                 Source={x:Reference PageRecetasCategoria}}"
                                                     CommandParameter="{Binding .}"/>
