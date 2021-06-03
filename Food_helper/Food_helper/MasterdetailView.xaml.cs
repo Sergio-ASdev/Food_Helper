@@ -35,10 +35,16 @@ namespace Food_helper
                 TipoPagina = typeof(FavoritosView),
                 Titulo = "Mis favoritas"
             };
+            var consejos = new MasterDetailItem()
+            {
+                TipoPagina = typeof(ConsejosView),
+                Titulo = "Consejos"
+            };
             
             items.Add(paginaPrincipal);
             items.Add(searchrecetas);
             items.Add(favoritos);
+            items.Add(consejos);
             this.lisviewMenu.ItemsSource = items;
             this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(MainCategoriasView)));
             this.lisviewMenu.ItemSelected += LisviewMenu_ItemSelected;

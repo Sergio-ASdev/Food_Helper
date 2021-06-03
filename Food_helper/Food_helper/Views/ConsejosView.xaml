@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_helper.Views.ConsejosView"
+             xmlns:local="clr-namespace:Food_helper"
+             
+             xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls">
+    <ContentPage.Content>
+        <StackLayout x:Name="PageConsejos" BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=ConsejosViewModel}">
+            <ListView ItemsSource="{Binding Consejos}"
+HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <customviewcell:CustomViewCellControl SelectedItemBackgroundColor="white">
+
+
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="250" Padding="0">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250"/>
+                                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                            <Label HorizontalOptions="StartAndExpand" Text="{Binding Titulo}"
+StyleClass="tituloreceta" FontSize="18" Margin="5,0,5,5" HorizontalTextAlignment="Start"/>
+                                            <Button Text="VER MÁS"
+BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
+Command="{Binding BindingContext.MostrarConsejo,
+Source={x:Reference PageConsejos}}"
+CommandParameter="{Binding .}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </customviewcell:CustomViewCellControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

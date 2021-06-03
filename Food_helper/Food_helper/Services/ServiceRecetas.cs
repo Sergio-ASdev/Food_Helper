@@ -63,5 +63,12 @@ namespace Food_helper.Services
                 await CallApi<List<Receta>>(request);
             return recetas;
         }
+        public async Task<List<Consejo>> GetConsejos()
+        {
+            String request = "/api/Consejos/GetConsejos";
+            List<Consejo> consejos =
+            await CallApi<List<Consejo>>(request);
+            return consejos;
+        }
     }
 }
