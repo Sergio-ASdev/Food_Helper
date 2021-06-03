@@ -27,8 +27,8 @@
                                                Padding="10"/>
                                         -->
 
-                                        <Button Text="{Binding Nombre, StringFormat=VER RECETAS {0}}" 
-                                                BackgroundColor="Orange" FontSize="18" Font="Bold,19" BorderColor="Gray" Padding="2,0,2,2" 
+                                        <Button Text="{Binding Nombre, StringFormat=VER RECETAS {0}}" TextColor="White"
+                                                BackgroundColor="#BD1313" FontSize="18" Font="Bold,19" BorderColor="Gray" Padding="2,0,2,2" 
                                                 Command="{Binding BindingContext.ShowRecetasCategoria, 
                                             Source={x:Reference StackCategorias}}"
                                                 CommandParameter="{Binding .}"/>

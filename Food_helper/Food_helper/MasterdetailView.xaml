@@ -1,7 +1,49 @@
-﻿<?xml version="1.0" encoding="utf-8" ?><MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             x:Class="Food_helper.MasterdetailView"                  xmlns:customControlls="clr-namespace:Food_helper.CustomControlls">    <MasterDetailPage.Master>        <ContentPage Title="Menu Recetas">            <StackLayout Orientation="Vertical">                <!--<Entry HorizontalOptions="FillAndExpand" Placeholder="Ingredientes"/>-->                <StackLayout>
-                    <StackLayout BackgroundColor="LightCoral" HeightRequest="100">
-                        <Image Source="https://carlaideahome.files.wordpress.com/2019/11/recetas.png?w=300" 
-                           HeightRequest="80" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Food_helper.MasterdetailView"
+                  xmlns:customControlls="clr-namespace:Food_helper.CustomControlls">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu Recetas">
+            <StackLayout Orientation="Vertical">
+
+                <!--<Entry HorizontalOptions="FillAndExpand" Placeholder="Ingredientes"/>-->
+
+                <StackLayout>
+                    <StackLayout BackgroundColor="#BD1313" HeightRequest="150">
+                        <Image Source="https://foodhelperblob.blob.core.windows.net/imagenes/recetas.png" 
+                           HeightRequest="100" 
                            HorizontalOptions="FillAndExpand" 
-                           Margin="15"/>
-                    </StackLayout>                    <!--<SearchBar Placeholder="Ingredientes"/>-->                    <!--<Button Text="Buscar" BackgroundColor="Orange" TextColor="White"/>-->                    <ListView x:Name="lisviewMenu"                          HasUnevenRows="true"                          SeparatorVisibility="Default"                          BackgroundColor="white">                        <ListView.ItemTemplate>                            <DataTemplate>                                <customControlls:CustomViewCellControl SelectedItemBackgroundColor="white">                                    <StackLayout Spacing="20" Padding="15" BackgroundColor="white">                                        <Label Text="{Binding Titulo}"                                           TextColor="Black"                                           VerticalOptions="Center"                                           FontSize="Medium"/>                                    </StackLayout>                                </customControlls:CustomViewCellControl>                            </DataTemplate>                        </ListView.ItemTemplate>                    </ListView>                </StackLayout>            </StackLayout>        </ContentPage>    </MasterDetailPage.Master>    <MasterDetailPage.Detail>        <NavigationPage>                    </NavigationPage>    </MasterDetailPage.Detail></MasterDetailPage>
+                               VerticalOptions="CenterAndExpand"
+                           />
+                    </StackLayout>
+                    <!--<SearchBar Placeholder="Ingredientes"/>-->
+                    <!--<Button Text="Buscar" BackgroundColor="Orange" TextColor="White"/>-->
+                    <ListView x:Name="lisviewMenu"
+                          HasUnevenRows="true"
+                          SeparatorVisibility="Default"
+                          BackgroundColor="white">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <customControlls:CustomViewCellControl SelectedItemBackgroundColor="white">
+                                    <StackLayout Orientation="Horizontal" Spacing="20" Padding="15" BackgroundColor="white">
+                                        <Image Source="{Binding Imagen}" HeightRequest="25"/>
+                                        <Label Text="{Binding Titulo}"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"
+                                           FontSize="Medium"/>
+                                    </StackLayout>
+                                </customControlls:CustomViewCellControl>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

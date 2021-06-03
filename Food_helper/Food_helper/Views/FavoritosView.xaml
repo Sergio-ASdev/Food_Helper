@@ -4,7 +4,7 @@
              x:Class="Food_helper.Views.FavoritosView"
              xmlns:local="clr-namespace:Food_helper"
              x:Name="PageFavoritos"
-             Title="Food Helper"
+             Title="Recetas Favoritas Añadidas"
              BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=FavoritosViewModel}"
              >
     <ContentPage.Content>
@@ -14,41 +14,37 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <SwipeView>
-                                <SwipeView.LeftItems>
-                                    <SwipeItems>
-                                        <SwipeItem 
-                                            Text="Ver Receta"
-                                            IconImageSource=""
-                                            BackgroundColor="Blue"
-                                            Command="{Binding BindingContext.MostrarReceta,
-                                            Source={x:Reference PageFavoritos}}"
-                                            CommandParameter="{Binding .}"/>
-                                        <SwipeItem 
-                                            Text="Borrar favorito"
-                                            IconImageSource=""
-                                            BackgroundColor="Blue"
-                                            Command="{Binding BindingContext.DeleteFavorito,
-                                            Source={x:Reference PageFavoritos}}"
-                                            CommandParameter="{Binding .}"/>
-                                    </SwipeItems>
-                                </SwipeView.LeftItems>
-                                <SwipeView.RightItems>
-                                    <SwipeItems>
 
-                                    </SwipeItems>
-                                </SwipeView.RightItems>
-                                <Frame CornerRadius="10" Margin="10">
-                                    <StackLayout>
-                                        <Label Text="{Binding NombreReceta}"/>
-                                        <!--<Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
+                            <Frame CornerRadius="10" Margin="10">
+                                <StackLayout Orientation="Horizontal" >
+                                    <Image HorizontalOptions="StartAndExpand"
+                                            BackgroundColor="Transparent"
+                                            Source="https://foodhelperblob.blob.core.windows.net/imagenes/cross.png"
+                                            HeightRequest="25">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding BindingContext.DeleteFavorito, Source={x:Reference PageFavoritos}}"
+                                                CommandParameter="{Binding .}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label Text="{Binding NombreReceta}" HorizontalOptions="CenterAndExpand" Font="Bold,14"/>
+                                    <Image HorizontalOptions="EndAndExpand"
+                                            Source="https://foodhelperblob.blob.core.windows.net/imagenes/ojo.png"
+                                            HeightRequest="25"
+                                            BackgroundColor="Transparent">
+                                        <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                                Command="{Binding BindingContext.MostrarReceta, Source={x:Reference PageFavoritos}}" 
+                                                CommandParameter="{Binding .}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <!--<Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
                                         Command="{Binding BindingContext.MostrarReceta,
                                         Source={x:Reference PageBusqueda}}"
                                         CommandParameter="{Binding .}"/>-->
-                                    </StackLayout>
-                                </Frame>
-                            </SwipeView>
-
+                                </StackLayout>
+                            </Frame>
 
                         </ViewCell>
                     </DataTemplate>

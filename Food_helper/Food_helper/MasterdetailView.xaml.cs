@@ -23,22 +23,26 @@ namespace Food_helper
             var paginaPrincipal= new MasterDetailItem()
             {
                 TipoPagina = typeof(MainCategoriasView),
-                Titulo = "Inicio"
+                Titulo = "Inicio",
+                Imagen = "https://foodhelperblob.blob.core.windows.net/imagenes/Home.png"
             };
             var searchrecetas= new MasterDetailItem()
             {
                 TipoPagina = typeof(SearchRecetasView),
-                Titulo = "Busca tu receta"
+                Titulo = "Busca tu receta",
+                Imagen = "https://foodhelperblob.blob.core.windows.net/imagenes/lupa.png"
             };
             var favoritos= new MasterDetailItem()
             {
                 TipoPagina = typeof(FavoritosView),
-                Titulo = "Mis favoritas"
+                Titulo = "Mis recetas favoritas",
+                Imagen = "https://foodhelperblob.blob.core.windows.net/imagenes/star.png"
             };
             var consejos = new MasterDetailItem()
             {
                 TipoPagina = typeof(ConsejosView),
-                Titulo = "Consejos"
+                Titulo = "Consejos",
+                Imagen = "https://foodhelperblob.blob.core.windows.net/imagenes/tips.png"
             };
             
             items.Add(paginaPrincipal);

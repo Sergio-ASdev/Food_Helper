@@ -41,7 +41,7 @@
                                                    StyleClass="tituloreceta" FontSize="18" Margin="3,0,5,2" HorizontalTextAlignment="Center"/>
 
                                                 <Button Text="VER MÁS" 
-                                                BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0" Font="Bold"
+                                                BackgroundColor="#BD1313" FontSize="18" Margin="5,5,10,0" Font="Bold" TextColor="White"
                                                 Command="{Binding BindingContext.MostrarReceta, 
                                                 Source={x:Reference PageRecetasCategoria}}"
                                                     CommandParameter="{Binding .}"/>

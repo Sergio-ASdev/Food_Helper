@@ -12,7 +12,7 @@
                 <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                     
                     <Label Text="{Binding Receta.NombreReceta}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
-                           FontSize="15" Margin="8,4,12,4" TextColor="White" Font="Bold,34" BackgroundColor="Black"/>
+                           FontSize="15" Margin="8,4,12,4" TextColor="White" Font="Bold,34" BackgroundColor="#BD1313"/>
                     
                     <Image Margin="5,5,5,5" HorizontalOptions="Center" WidthRequest="400" HeightRequest="225" Source="{Binding Receta.Imagen}"/>
                     

@@ -8,5 +8,6 @@ namespace Food_helper
     {
         public String Titulo { get; set; }
         public Type TipoPagina { get; set; }
+        public String Imagen { get; set; }
     }
 }

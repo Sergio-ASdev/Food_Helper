@@ -3,21 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Food_helper.Views.DetalleConsejoView">
     <ContentPage.Content>
+
         <StackLayout>
-            <Grid>
-                <Image Opacity="1" Source="cuaderno.png" Aspect="AspectFill"/>
-                <ScrollView VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="5,5,5,5">
-                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                        <Label Text="{Binding Consejo.Titulo}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
-FontSize="15" Margin="8,4,12,4" TextColor="Black" Font="Bold,34" BackgroundColor="Orange"/>
-                        <Image Margin="5,5,5,5" HorizontalOptions="Center" WidthRequest="400" HeightRequest="225" Source="{Binding Consejo.Imagen}"/>
-                        <StackLayout Orientation="Vertical" Margin="7,4,10,5">
-                            <Label Text="Preparación" FontSize="13" Font="Bold,24" TextColor="Black" />
-                            <Label Text="{Binding Consejo.Descripcion}" TextColor="Black" HorizontalTextAlignment="Start" />
+
+            <StackLayout>
+                <Grid>
+                    <Image Opacity="1" Source="cuaderno.png" Aspect="AspectFill"/>
+                    <ScrollView VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="5,5,5,5">
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                            <Label Text="{Binding Consejo.Titulo}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                            FontSize="15" Margin="8,4,12,4" TextColor="Black" Font="Bold,34" BackgroundColor="Orange"/>
+                            <Image Margin="5,5,5,5" HorizontalOptions="Center" WidthRequest="400" HeightRequest="225" Source="{Binding Consejo.Imagen}"/>
+                            <StackLayout Orientation="Vertical" Margin="7,4,10,5">
+                                <Label Text="Preparación" FontSize="13" Font="Bold,24" TextColor="Black" />
+                                <Label Text="{Binding Consejo.Descripcion}" TextColor="Black" HorizontalTextAlignment="Start" />
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </ScrollView>
-            </Grid>
+                    </ScrollView>
+                </Grid>
+            </StackLayout>
+
         </StackLayout>
+        
+
+        
     </ContentPage.Content>
 </ContentPage>

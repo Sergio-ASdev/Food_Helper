@@ -3,10 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Food_helper.Views.ConsejosView"
              xmlns:local="clr-namespace:Food_helper"
-             
+             Title="Lista de Consejos"
              xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls">
     <ContentPage.Content>
         <StackLayout x:Name="PageConsejos" BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=ConsejosViewModel}">
+
+            <CollectionView ItemsSource="{Binding Consejos}" SelectionMode="Single">
+                <CollectionView.ItemsLayout >
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+                        <StackLayout>
+                            <StackLayout HeightRequest="300"  Orientation="Vertical"  BackgroundColor="#fff0f0" Padding="15" >
+                                <Label Text="{Binding Titulo}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0,20,0,0" Font="Bold,16"/>
+                                <Image Source="{Binding Imagen}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"/>
+
+                                <Button Text="VER MÁS" HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="#BD1313" FontSize="18" Font="Bold" Margin="5,5,5,0" TextColor="White" CornerRadius="20"
+                                    Command="{Binding BindingContext.MostrarConsejo,
+                                    Source={x:Reference PageConsejos}}"
+                                    CommandParameter="{Binding .}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <!--
             <ListView ItemsSource="{Binding Consejos}"
 HasUnevenRows="true">
                 <ListView.ItemTemplate>
@@ -22,12 +47,12 @@ HasUnevenRows="true">
                                         <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250"/>
                                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                                             <Label HorizontalOptions="StartAndExpand" Text="{Binding Titulo}"
-StyleClass="tituloreceta" FontSize="18" Margin="5,0,5,5" HorizontalTextAlignment="Start"/>
+                                                StyleClass="tituloreceta" FontSize="18" Margin="5,0,5,5" HorizontalTextAlignment="Start"/>
                                             <Button Text="VER MÁS"
-BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
-Command="{Binding BindingContext.MostrarConsejo,
-Source={x:Reference PageConsejos}}"
-CommandParameter="{Binding .}"/>
+                                                BackgroundColor="#BD1313" FontSize="18" Font="Bold" Margin="5,5,10,0" TextColor="White"
+                                                Command="{Binding BindingContext.MostrarConsejo,
+                                                Source={x:Reference PageConsejos}}"
+                                                CommandParameter="{Binding .}"/>
                                         </StackLayout>
                                     </StackLayout>
                                 </Frame>
@@ -36,6 +61,7 @@ CommandParameter="{Binding .}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
