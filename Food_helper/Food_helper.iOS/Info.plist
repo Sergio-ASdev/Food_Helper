@@ -7,6 +7,9 @@
         <integer>1</integer>
         <integer>2</integer>
     </array>
+  <key>UIAppFonts</key>
+  <string>Breamcatcher</string>
+  <string>The Wanters DEMO</string>
     <key>UISupportedInterfaceOrientations</key>
     <array>
         <string>UIInterfaceOrientationPortrait</string>

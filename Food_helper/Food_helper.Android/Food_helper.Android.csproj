@@ -80,6 +80,12 @@
     <Compile Include="SQLiteClient.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\The Wanters DEMO.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\breamcatcher.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AndroidAsset>
     <None Include="FodyWeavers.xsd">
       <SubType>Designer</SubType>
     </None>

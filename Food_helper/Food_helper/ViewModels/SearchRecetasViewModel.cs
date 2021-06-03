@@ -100,7 +100,7 @@ namespace Food_helper.ViewModels
                     if (repo.GetReceta(r.IdReceta) != null)
                     {
                         await Application.Current.MainPage.DisplayAlert("Favoritos"
-                            , r.NombreReceta + "ya se encuentra en tu lista de favoritos", "OK");
+                            , r.NombreReceta + " ya se encuentra en tu lista de favoritos", "OK");
                     }
                     else
                     {
@@ -125,7 +125,7 @@ namespace Food_helper.ViewModels
                     MessagingCenter.Send(App.ServiceLocator.FavoritosViewModel
                 , "refresh");
                     await Application.Current.MainPage.DisplayAlert("Favoritos"
-                        , r.NombreReceta + "eliminado de tu lista de favoritos", "OK");
+                        , r.NombreReceta + " eliminado de tu lista de favoritos", "OK");
                 });
             }
         }

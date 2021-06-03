@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Food_helper.Views.FavoritosView"
              xmlns:local="clr-namespace:Food_helper"
+             xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls"
              x:Name="PageFavoritos"
              Title="Recetas Favoritas Añadidas"
              BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=FavoritosViewModel}"
@@ -13,7 +14,7 @@
                 ItemsSource="{Binding Recetas}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <customviewcell:CustomViewCellControl>
 
                             <Frame CornerRadius="10" Margin="10">
                                 <StackLayout Orientation="Horizontal" >
@@ -46,7 +47,7 @@
                                 </StackLayout>
                             </Frame>
 
-                        </ViewCell>
+                        </customviewcell:CustomViewCellControl>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

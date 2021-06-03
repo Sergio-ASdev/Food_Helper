@@ -26,12 +26,14 @@
                                             IconImageSource="https://foodhelperblob.blob.core.windows.net/imagenes/ojo.png"
                                             Command="{Binding BindingContext.MostrarReceta,
                                             Source={x:Reference PageBusqueda}}"
+                                            BackgroundColor="#f52c2c"
                                             CommandParameter="{Binding .}"/>  
                                         <SwipeItem 
                                             Text="Añadir favorito"
                                             IconImageSource="https://foodhelperblob.blob.core.windows.net/imagenes/starbis.png"
                                             Command="{Binding BindingContext.Favorito,
                                             Source={x:Reference PageBusqueda}}"
+                                            BackgroundColor="#ffea00"
                                             CommandParameter="{Binding .}"/> 
                                     </SwipeItems>
                                 </SwipeView.LeftItems>

@@ -21,8 +21,8 @@
                                     <SwipeItems>
                                         <SwipeItem 
                                             Text="Añadir favorito"
-                                            IconImageSource=""
-                                            BackgroundColor="Blue"
+                                            IconImageSource="https://foodhelperblob.blob.core.windows.net/imagenes/starbis.png"
+                                            BackgroundColor="#ffea00"
                                             Command="{Binding BindingContext.Favorito,
                                             Source={x:Reference PageRecetasCategoria}}"
                                             CommandParameter="{Binding .}"/>

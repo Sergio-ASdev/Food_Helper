@@ -10,12 +10,24 @@
                 <!--<Entry HorizontalOptions="FillAndExpand" Placeholder="Ingredientes"/>-->
 
                 <StackLayout>
-                    <StackLayout BackgroundColor="#BD1313" HeightRequest="150">
+                    <StackLayout BackgroundColor="#BD1313" HeightRequest="250">
                         <Image Source="https://foodhelperblob.blob.core.windows.net/imagenes/recetas.png" 
                            HeightRequest="100" 
                            HorizontalOptions="FillAndExpand" 
                                VerticalOptions="CenterAndExpand"
                            />
+                        <Label Text="Food Helper" FontSize="60" TextColor="white" 
+                               HorizontalOptions="CenterAndExpand"
+                               Margin="5,0,2,60">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS"
+                                                        Value="The Wanters DEMO"/>
+                                    <On Platform="Android"
+                                                        Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
                     </StackLayout>
                     <!--<SearchBar Placeholder="Ingredientes"/>-->
                     <!--<Button Text="Buscar" BackgroundColor="Orange" TextColor="White"/>-->
@@ -31,7 +43,24 @@
                                         <Label Text="{Binding Titulo}"
                                            TextColor="Black"
                                            VerticalOptions="Center"
-                                           FontSize="Medium"/>
+                                           FontSize="Large">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS"
+                                                        Value="The Wanters DEMO"/>
+                                                    <On Platform="Android"
+                                                        Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                            <!--<Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="iOS"
+                                                        Value="BreamCatcher"/>
+                                                    <On Platform="Android"
+                                                        Value="breamcatcher.ttf#BreamCatcher"/>
+                                                </OnPlatform>
+                                            </Label.FontFamily>-->
+                                        </Label>
                                     </StackLayout>
                                 </customControlls:CustomViewCellControl>
                             </DataTemplate>
