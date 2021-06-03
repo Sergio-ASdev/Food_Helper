@@ -63,7 +63,7 @@ namespace Food_helper.ViewModels
                     if (repo.GetReceta(r.IdReceta) != null)
                     {
                         await Application.Current.MainPage.DisplayAlert("Favoritos"
-                            , r.NombreReceta + "ya se encuentra en tu lista de favoritos", "OK");
+                            , r.NombreReceta + " ya se encuentra en tu lista de favoritos", "OK");
                     }
                     else
                     {

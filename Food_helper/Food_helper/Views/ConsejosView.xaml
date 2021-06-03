@@ -16,7 +16,16 @@
                     <DataTemplate>
                         <StackLayout>
                             <StackLayout HeightRequest="300"  Orientation="Vertical"  BackgroundColor="#fff0f0" Padding="15" >
-                                <Label Text="{Binding Titulo}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0,20,0,0" Font="Bold,16"/>
+                                <Label Text="{Binding Titulo}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0,20,0,0" Font="Bold,16">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                            <On Platform="iOS"
+                                                        Value="The Wanters DEMO"/>
+                                            <On Platform="Android"
+                                                        Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
                                 <Image Source="{Binding Imagen}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"/>
 
                                 <Button Text="VER MÁS" HorizontalOptions="FillAndExpand"
