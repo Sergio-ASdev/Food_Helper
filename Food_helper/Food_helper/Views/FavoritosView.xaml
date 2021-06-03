@@ -4,6 +4,7 @@
              x:Class="Food_helper.Views.FavoritosView"
              xmlns:local="clr-namespace:Food_helper"
              x:Name="PageFavoritos"
+             Title="Food Helper"
              BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=FavoritosViewModel}"
              >
     <ContentPage.Content>

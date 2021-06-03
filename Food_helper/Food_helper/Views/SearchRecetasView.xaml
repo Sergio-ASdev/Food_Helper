@@ -42,9 +42,9 @@
                                         
                                     </SwipeItems>    
                                 </SwipeView.RightItems>
-                                <Frame Margin="10" HeightRequest="36" BackgroundColor="White">
+                                <Frame Margin="10" BackgroundColor="White"> <!-- Si le doy height, se amontonan los stack dont del swipe -->
                                     <StackLayout Margin="10" BackgroundColor="White">
-                                        <Label Text="{Binding NombreReceta}" Font="Bold,14"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="38"/>
+                                        <Label Text="{Binding NombreReceta}" Font="Bold,14"  HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="38"/>
                                         <!--<Button Text="VER RECETA" BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0"
                                         Command="{Binding BindingContext.MostrarReceta,
                                         Source={x:Reference PageBusqueda}}"

@@ -16,30 +16,42 @@
                     <DataTemplate>
 
                         <customviewcell:CustomViewCellControl  SelectedItemBackgroundColor="white">
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem 
+                                            Text="Añadir favorito"
+                                            IconImageSource=""
+                                            BackgroundColor="Blue"
+                                            Command="{Binding BindingContext.Favorito,
+                                            Source={x:Reference PageRecetasCategoria}}"
+                                            CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
 
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
-                                <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="250" Padding="0">
+                                    <Frame CornerRadius="5" HorizontalOptions="FillAndExpand" Margin="10" HeightRequest="250" Padding="0">
 
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 
-                                        <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250"/>
-                                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                                            <Label HorizontalOptions="StartAndExpand" Text="{Binding NombreReceta}"  Font="Bold"
+                                            <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250"/>
+                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                                <Label HorizontalOptions="StartAndExpand" Text="{Binding NombreReceta}"  Font="Bold"
                                                    StyleClass="tituloreceta" FontSize="18" Margin="3,0,5,2" HorizontalTextAlignment="Center"/>
 
-                                            <Button Text="VER MÁS" 
+                                                <Button Text="VER MÁS" 
                                                 BackgroundColor="Orange" FontSize="18" Margin="5,5,10,0" Font="Bold"
                                                 Command="{Binding BindingContext.MostrarReceta, 
                                                 Source={x:Reference PageRecetasCategoria}}"
                                                     CommandParameter="{Binding .}"/>
+                                            </StackLayout>
                                         </StackLayout>
-                                    </StackLayout>
 
-                                </Frame>
+                                    </Frame>
 
-                            </StackLayout>
-
+                                </StackLayout>
+                            </SwipeView>
                         </customviewcell:CustomViewCellControl>
 
                     </DataTemplate>

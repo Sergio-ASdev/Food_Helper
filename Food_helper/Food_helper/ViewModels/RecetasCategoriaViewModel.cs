@@ -1,4 +1,5 @@
 ﻿using Food_helper.Base;
+using Food_helper.Repositories;
 using Food_helper.Services;
 using Food_helper.Views;
 using NuGetFoodHelper.Models;
@@ -14,9 +15,11 @@ namespace Food_helper.ViewModels
     public class RecetasCategoriaViewModel:ViewModelBase
     {
         public ServiceRecetas service;
-        public RecetasCategoriaViewModel(ServiceRecetas service)
+        RepositoryFavoritos repo;
+        public RecetasCategoriaViewModel(ServiceRecetas service, RepositoryFavoritos repo)
         {
             this.service = service;
+            this.repo = repo;
         }
 
         private ObservableCollection<Receta> _Recetas;
@@ -49,5 +52,31 @@ namespace Food_helper.ViewModels
                 });
             }
         }
+
+        public Command Favorito
+        {
+            get
+            {
+                return new Command(async (receta) =>
+                {
+                    Receta r = receta as Receta;
+                    if (repo.GetReceta(r.IdReceta) != null)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Favoritos"
+                            , r.NombreReceta + "ya se encuentra en tu lista de favoritos", "OK");
+                    }
+                    else
+                    {
+                        repo.InsertReceta(r);
+                        MessagingCenter.Send(App.ServiceLocator.FavoritosViewModel
+                        , "refresh");
+                        await Application.Current.MainPage.DisplayAlert("Favoritos"
+                        , r.NombreReceta + " añadido a tu lista de favoritos", "OK");
+
+                    }
+                });
+            }
+        }
+
     }
 }
