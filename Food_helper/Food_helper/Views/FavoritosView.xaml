@@ -14,7 +14,7 @@
                 ItemsSource="{Binding Recetas}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <customviewcell:CustomViewCellControl>
+                        <customviewcell:CustomViewCellControl SelectedItemBackgroundColor="white">
 
                             <Frame CornerRadius="10" Margin="5">
                                 <StackLayout Orientation="Horizontal" >

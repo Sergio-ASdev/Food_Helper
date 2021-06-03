@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Food_helper.Views.SearchRecetasView"
              xmlns:local="clr-namespace:Food_helper"
+             xmlns:customviewcell="clr-namespace:Food_helper.CustomControlls"
              x:Name="PageBusqueda"
              Title="Buscador de Recetas"
              BindingContext="{Binding Source={x:Static local:App.ServiceLocator} ,Path=SearchRecetasViewModel}">
@@ -17,7 +18,7 @@
                 ItemsSource="{Binding FilteredRecetas}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <customviewcell:CustomViewCellControl SelectedItemBackgroundColor="white">
                             <SwipeView>
                                 <SwipeView.LeftItems>
                                     <SwipeItems>
@@ -53,8 +54,8 @@
                                 </Frame>
                             </SwipeView>
 
-                            
-                        </ViewCell>
+
+                        </customviewcell:CustomViewCellControl>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
