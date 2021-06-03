@@ -12,11 +12,18 @@
                     <ScrollView VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="5,5,5,5">
                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                             <Label Text="{Binding Consejo.Titulo}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
-                            FontSize="15" Margin="8,4,12,4" TextColor="Black" Font="Bold,34" BackgroundColor="Orange"/>
+                            Margin="8,4,12,4" TextColor="Black" Font="Bold,40" BackgroundColor="#BD1313">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="The Wanters DEMO"/>
+                                        <On Platform="Android" Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
                             <Image Margin="5,5,5,5" HorizontalOptions="Center" WidthRequest="400" HeightRequest="225" Source="{Binding Consejo.Imagen}"/>
                             <StackLayout Orientation="Vertical" Margin="7,4,10,5">
-                                <Label Text="Preparación" FontSize="13" Font="Bold,24" TextColor="Black" />
-                                <Label Text="{Binding Consejo.Descripcion}" TextColor="Black" HorizontalTextAlignment="Start" />
+                                <Label Text="Preparación" Font="Bold,28" TextColor="Black" />
+                                <Label Text="{Binding Consejo.Descripcion}" FontSize="23" TextColor="Black" HorizontalTextAlignment="Start"  Margin="8"/>
                             </StackLayout>
                         </StackLayout>
                     </ScrollView>

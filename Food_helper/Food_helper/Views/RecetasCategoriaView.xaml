@@ -38,7 +38,14 @@
                                             <Image Aspect="AspectFill" Source="{Binding Imagen}" WidthRequest="250"/>
                                             <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                                                 <Label HorizontalOptions="StartAndExpand" Text="{Binding NombreReceta}"  Font="Bold"
-                                                   StyleClass="tituloreceta" FontSize="18" Margin="3,0,5,2" HorizontalTextAlignment="Center"/>
+                                                   StyleClass="tituloreceta" FontSize="23" Margin="3,0,5,2" HorizontalTextAlignment="Center">
+                                                    <Label.FontFamily>
+                                                        <OnPlatform x:TypeArguments="x:String">
+                                                            <On Platform="iOS" Value="The Wanters DEMO"/>
+                                                            <On Platform="Android" Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                                        </OnPlatform>
+                                                    </Label.FontFamily>
+                                                </Label>
 
                                                 <Button Text="VER MÁS" 
                                                 BackgroundColor="#BD1313" FontSize="18" Margin="5,5,10,0" Font="Bold" TextColor="White"

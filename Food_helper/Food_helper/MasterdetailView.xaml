@@ -21,10 +21,8 @@
                                Margin="5,0,2,60">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">
-                                    <On Platform="iOS"
-                                                        Value="The Wanters DEMO"/>
-                                    <On Platform="Android"
-                                                        Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                    <On Platform="iOS" Value="The Wanters DEMO"/>
+                                    <On Platform="Android" Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
                                 </OnPlatform>
                             </Label.FontFamily>
                         </Label>

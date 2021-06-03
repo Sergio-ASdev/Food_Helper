@@ -10,28 +10,48 @@
             <Image Opacity="1" Source="cuaderno.png" Aspect="AspectFill"/>
             <ScrollView VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="5,5,5,5">
                 <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                    
+
                     <Label Text="{Binding Receta.NombreReceta}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" 
-                           FontSize="15" Margin="8,4,12,4" TextColor="White" Font="Bold,34" BackgroundColor="#BD1313"/>
-                    
+                            Margin="8,4,12,4" TextColor="White" Font="Bold,40" BackgroundColor="#BD1313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="The Wanters DEMO"/>
+                                <On Platform="Android" Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+
                     <Image Margin="5,5,5,5" HorizontalOptions="Center" WidthRequest="400" HeightRequest="225" Source="{Binding Receta.Imagen}"/>
                     
-                    <StackLayout Orientation="Vertical" Margin="7,4,10,5">
-                        <Label Text="Preparación" FontSize="13" Font="Bold,24" TextColor="Black" HorizontalTextAlignment="Center"/>
-                        <Label Text="{Binding Receta.Preparacion}" TextColor="Black" HorizontalTextAlignment="Center" />
+                    
+                    <StackLayout Orientation="Vertical" Margin="7,4,10,5" >
+                        <Label Text="Preparación" Font="Bold,34" TextColor="Black" HorizontalTextAlignment="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="The Wanters DEMO"/>
+                                    <On Platform="Android" Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <Label Text="{Binding Receta.Preparacion}" FontSize="18"  TextColor="Black" HorizontalTextAlignment="Center" />
                     </StackLayout>
 
                     <StackLayout Orientation="Vertical" Margin="10,4,6,0">
-                        <Label Text="Lista de ingredientes" FontSize="13" Font="Bold,24" TextColor="Black" HorizontalTextAlignment="Center"/>
-                        <ListView ItemsSource="{Binding IngredientesCantidad}" HasUnevenRows="True" 
-                                  
-                                  Margin="14,0,0,0">
-                            <ListView.ItemTemplate>
+                        <Label Text="Lista de ingredientes" Font="Bold,34" TextColor="Black" HorizontalTextAlignment="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="iOS" Value="The Wanters DEMO"/>
+                                    <On Platform="Android" Value="The Wanters DEMO.ttf#The Wanters DEMO"/>
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <ListView ItemsSource="{Binding IngredientesCantidad}" Margin="14,0,0,0">
+                            <ListView.ItemTemplate Margin="0" Padding="0">
                                 <DataTemplate>
                                     <customviewcell:CustomViewCellControl SelectedItemBackgroundColor="White">
-                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
-                                            <Label Text="{Binding Cantidad}" FontSize="20" TextColor="Gray" WidthRequest="150" HorizontalTextAlignment="End"/>
-                                            <Label Text=" {Binding NombreIngrediente}" FontSize="20" TextColor="Gray" Margin="8,0,0,0"/>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="0" Padding="0">
+                                            <Label Text="{Binding Cantidad}" FontSize="20" TextColor="Gray" WidthRequest="150" HorizontalTextAlignment="End" VerticalOptions="CenterAndExpand"/>
+                                            <Label Text=" {Binding NombreIngrediente}"  Font="Bold,22" TextColor="Gray" Margin="8,0,0,0" VerticalOptions="CenterAndExpand"/>
                                         </StackLayout>
                                     </customviewcell:CustomViewCellControl>
                                 </DataTemplate>

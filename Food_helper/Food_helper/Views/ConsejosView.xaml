@@ -20,7 +20,7 @@
                                 <Image Source="{Binding Imagen}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"/>
 
                                 <Button Text="VER MÁS" HorizontalOptions="FillAndExpand"
-                                    BackgroundColor="#BD1313" FontSize="18" Font="Bold" Margin="5,5,5,0" TextColor="White" CornerRadius="20"
+                                    BackgroundColor="#BD1313" FontSize="20" Font="Bold" Margin="5,5,5,0" TextColor="White" CornerRadius="20"
                                     Command="{Binding BindingContext.MostrarConsejo,
                                     Source={x:Reference PageConsejos}}"
                                     CommandParameter="{Binding .}"/>

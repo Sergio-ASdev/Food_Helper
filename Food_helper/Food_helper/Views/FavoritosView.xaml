@@ -16,12 +16,12 @@
                     <DataTemplate>
                         <customviewcell:CustomViewCellControl>
 
-                            <Frame CornerRadius="10" Margin="10">
+                            <Frame CornerRadius="10" Margin="5">
                                 <StackLayout Orientation="Horizontal" >
                                     <Image HorizontalOptions="StartAndExpand"
                                             BackgroundColor="Transparent"
                                             Source="https://foodhelperblob.blob.core.windows.net/imagenes/cross.png"
-                                            HeightRequest="25">
+                                            HeightRequest="25" Margin="0,0,5,0">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer
                                                 Command="{Binding BindingContext.DeleteFavorito, Source={x:Reference PageFavoritos}}"
@@ -32,7 +32,7 @@
                                     <Image HorizontalOptions="EndAndExpand"
                                             Source="https://foodhelperblob.blob.core.windows.net/imagenes/ojo.png"
                                             HeightRequest="25"
-                                            BackgroundColor="Transparent">
+                                            BackgroundColor="Transparent" Margin="5,0,0,0">
                                         <Image.GestureRecognizers>
                                         <TapGestureRecognizer
                                                 Command="{Binding BindingContext.MostrarReceta, Source={x:Reference PageFavoritos}}" 
